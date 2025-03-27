@@ -1,5 +1,5 @@
 from .keser import search_username, process_brute_force_duckduckgo
-from stats import .Stats
+from stats import stats
 
 __version__ = "1.0.3"
 
