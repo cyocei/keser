@@ -1,7 +1,7 @@
 import time
 import sys
 
-class Stats:
+class stats:
     def __init__(self, total):
         self.total = total
         self.current = 0
