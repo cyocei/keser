@@ -33,4 +33,4 @@ class stats:
     def close(self):
         print()
 
-__all__ = ['Stats'] 
+__all__ = ['stats'] 
