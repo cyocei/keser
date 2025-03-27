@@ -364,7 +364,7 @@ async def search_username(username, save_file=None, search_all=False, print_summ
                 site for site in metadata["sites"]
                 if site["name"].lower() in TOP_SOCIAL_SITES or site["name"].lower() in TOP_GAMING_SITES
             ]
-        with Stats(len(sites_to_check)) as stats_checking:
+        with stats(len(sites_to_check)) as stats_checking:
             if top_sites:
                 tasks = [check_top_site(session, site, username) for site in sites_to_check]
             else:
@@ -469,7 +469,7 @@ def process_brute_force_duckduckgo(usernames_input, save_file=None, max_retries=
         output_capture = io.StringIO()
         sys.stdout = output_capture
 
-    with Stats(len(usernames)) as stats_checking:
+    with stats(len(usernames)) as stats_checking:
         for username in usernames:
             retry_count = 0
             success = False
