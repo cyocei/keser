@@ -256,7 +256,7 @@ def print_banner():
     print(f"{purple ( ' ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~')}")
     print(f"{pink ( ' :  keser --help                      :')}")
     print(f"{pink( ' :  https://github.com/vbiskit/keser  :')}")
-    print(f"{purple ( ' ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~')}")
+    print(f"{purple ( ' ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~')}\n")
 
 def setup_argparse():
     class CustomHelpFormatter(argparse.HelpFormatter):
