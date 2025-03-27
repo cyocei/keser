@@ -9,13 +9,14 @@ class stats:
         self.start_time = time.time()
         self.last_update = 0
         self.update_interval = 0.01  
-
+        self.bar_width = 30
+    
     def __enter__(self):
         return self
-
+    
     def __exit__(self, exc_type, exc_val, exc_tb):
         self.close()
-
+    
     def update(self, n=1, found=0):
         self.current += n
         self.found += found
@@ -27,8 +28,13 @@ class stats:
         self.last_update = current_time
         elapsed = current_time - self.start_time
         percentage = int(self.current * 100 / self.total)
-        print(f"\033[38;2;255;255;255mchecking \033[38;5;99m(\033[38;2;255;255;255m{self.current}/{self.total}\033[38;5;99m) \033[38;5;99m[\033[38;2;255;255;255m{percentage}%\033[38;5;99m] \033[38;5;99mat \033[38;2;255;255;255m{elapsed:.1f}s", end="\r")
+        
+        # Create progress bar
+        filled_width = int(self.bar_width * percentage / 100)
+        bar = '█' * filled_width + '░' * (self.bar_width - filled_width)
+        
+        print(f"\033[38;2;255;255;255mchecking {bar} \033[38;5;99m(\033[38;2;255;255;255m{self.current}/{self.total}\033[38;5;99m) \033[38;5;99m[\033[38;2;255;255;255m{percentage}%\033[38;5;99m] \033[38;5;99mat \033[38;2;255;255;255m{elapsed:.1f}s", end="\r")
         sys.stdout.flush()
-
+    
     def close(self):
         print()
